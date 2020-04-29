@@ -69,11 +69,22 @@ array = array.map { element in
 }
 ```
 
-Oh yeah, that's the protection I'm talking about. Now we don't have any chance to mutate our data on the way in the data Sequence.
+Oh yeah, that's the protection I'm talking about. Now we don't have any chance to mutate our data on the way though the data Sequence.
 
 But we are going to do with all this? All mobile apps are not pictures, they are not static, we need mutate data to `react` on user behaviour or any other external changes such as network data or even timers. The app is a living being. So we have two problems to solve we need to keep our value entities in the floating sequences and we need somehow to mutate data to show changes to the user. That's sounds like a chalange, but wait for it, let's talk a little bit of modern architectures. We have article about architecture over there.
 
+### MV family
+
+The problem above is not only about reactive. You can face it everywhere. Let's make a small step back and talk a little bit about modern app architectures.
+
+![mvc](images/MVC.png)
+
+I bet, you have seen this guy before. Actualy for my opinion most of the modern architectures looks like this. They could be called MVsomething family. MVP, VIPER, MVVM same but different. I don't want to go deep inside to try to understand what the difference between them, you've alredy know it without me. Let's talk about common things. They are all small peaces, separated by screens, single views or just peace of business logic. Whoever is familiar with the topic will understand in advance what I'm getting at. With all this architectures super easy to bump into inconsistent state of the app. Let me make an example imagine you have a home page in your app and this home page depends on the logged in user. You have had a quite complicated app already with possibility to sign in or sign out user from different parts of the app. Already got what I'm talking? Imagine you decided to sign out from one part of the app and your home page should `react` on this change. Let me just show a gif with it.
+
+![homesync](images/homesync.gif)
 
 https://twitter.com/mobileunderhood/status/1250773949287407617
 
 https://twitter.com/mobileunderhood/status/1250805880813236225
+
+https://twitter.com/mobileunderhood/status/1250831101247066112
