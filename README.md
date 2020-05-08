@@ -4,7 +4,7 @@ While ago I wrote an article [What is Reactive Programming? iOS Edition](https:/
 
 This article could be read not only by iOS developers. I used only the basic concepts of Swift. You should understand it with knowledge of any modern programming language.
 
-Today we are going to talk more about the practical aspects of reactive programming. I've already mentioned that's it's too easy to shoot into the foot after you started to use any reactive framework, so I want to show you a way how to secure yourself)
+Today we are going to talk more about the practical aspects of reactive programming. I've already mentioned it's too easy to shoot into the foot after you started to use any reactive framework, so I want to show you a way how to secure yourself)
 
 ## The problems
 
@@ -103,7 +103,7 @@ struct State {
 }
 ```
 
-Quite easy, ha? The system should be as simple as possible. There is only one source of truth and every other participant in the codebase `observe` all changes within this state. Let's try to implement this as well.
+Quite easy, ha? The system should be as simple as possible. There is only one source of truth and every other participant in the codebase `observe` all changes within this source. Let's try to implement this as well.
 
 ```swift
 protocol Observer {
@@ -241,7 +241,7 @@ class Store {
 }
 ```
 
-As a result, we've got a simple unidirectional architecture. However, there are so many questions left. We live not in the synchronous world, where it's possible to put every mutation through the `reduce` function synchronously. Indeed internet requests or timers, couldn’t be added like this to the approach, that I’ve introduced before. To resolve this problem, we'll use `SideEffects` approach, but about it, I'll write in my next article) Almost forgot about one important thing. Why is the architecture called unidirectional?) To make a clear explanation, I need to make you familiar with `SideEffects` as well. So, stay tuned!
+As a result, we've got a simple unidirectional architecture. However, there are so many questions left. We live not in the synchronous world, where it's possible to put every mutation through the `reduce` function synchronously. Indeed internet requests or timers, couldn’t be added like this to the approach, that I’ve introduced before. To resolve this problem, we'll use `SideEffects` approach, but about it, I'll write in my next article) Almost forgot about one important thing. Why is the architecture called unidirectional?) To make a clear explanation, I need to make you familiar with the `SideEffects` as well. So, stay tuned!
 
 PS: That’s already the second article about reactive programming, and I haven’t used any framework such as `RxSwift` or `Combine`... It actually means, that most of you have already been using reactive approaches, without even noticing it. If you don't want to lose any new articles `subscribe` to my [twitter account](https://twitter.com/atimca)))
 
